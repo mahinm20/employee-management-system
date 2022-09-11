@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Welcome to Mahin's Employee Management System </h1>
+<h2> Click Below for the following options</h2>
+
+<ul>
+    <li><a href="{% url 'list' %}"> See all the working Employees</a></li>
+    <li><a href="{% url 'add'%}">Add a new Employee</a></li>
+    <li><a href="{% url 'api:list' %}">Access API </a></li>
+</ul>
+
+{% endblock %}

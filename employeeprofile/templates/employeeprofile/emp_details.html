@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Emp ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact No</th>
+        <th scope="col">Address</th>
+        <th scope="col">Manager's Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">Designated Role</th>
+        <th scope="col">CTC</th>
+        <th scope="col">Documents</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr>
+        <th scope="row">{{details.id}}</th>
+        <td>{{details.first_name}}</td>
+        <td>{{details.last_name}}</td>
+        <td>{{details.email}}</td>
+        <td>+91-{{details.phone_number}}</td>
+        <td>{{details.address}}</td>
+        <td>{{details.manager}}</td>
+        <td>{{details.department}}</td>
+        <td>{{details.roles}}</td>
+        <td>{{details.salary}}</td>
+        <td><button type="button" class="btn btn-success" onclick="location.href='{{ details.documents.url}}'" >View</button></td>
+      </tr>
+      
+      
+
+    
+  </table>
+
+  
+  
+  
+  
+
+
+  <button type="submit" class="btn btn-info" onclick="location.href='{% url 'edit' details.id %}'" >Edit Details</button>
+  <button type="submit" class="btn btn-danger" onclick="location.href='{% url 'remove' details.id %}'" >Delete Employee ?</button>
+ 
+ 
+
+{% endblock %}

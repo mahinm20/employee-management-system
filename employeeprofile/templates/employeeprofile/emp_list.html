@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h2> Our Current working employees....</h2>
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        
+        <th scope="col">Name</th>
+        <th scope="col">Role</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for emp in data  %}
+      <tr>
+        <th scope="row">{{emp.first_name}} {{emp.last_name}}</th>
+        <td>{{emp.roles}}</td>
+        <td><a href="{% url 'details' emp.id %}">Click Here</a></td>
+      </tr>
+    
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <button type="button" class="btn btn-success" onclick="location.href='{% url 'add'  %}'"> Add More Employee Data here.</button>
+
+
+
+
+{% endblock %}
+
