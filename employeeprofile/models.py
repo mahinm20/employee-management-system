@@ -62,14 +62,14 @@ class Employee(models.Model):
     def __str__(self):
         return self.first_name + " "+self.last_name
    
-# class Tasks(models.Model):
-#     task_assigned = models.ForeignKey(Employee,on_delete=models.CASCADE,default="")
-#     task_name = models.CharField(max_length=100)
-#     task_desp = models.TextField(max_length=400)
-#     is_done = models.BooleanField(default=False)
+class Tasks(models.Model):
+    task_assigned = models.ForeignKey(Employee,on_delete=models.CASCADE,default="")
+    task_name = models.CharField(max_length=100)
+    task_desp = models.TextField(max_length=400)
+    is_done = models.BooleanField(default=False)
 
-#     def __str__(self):
-#         return self.task_name
+    def __str__(self):
+        return self.task_name
 
 
 

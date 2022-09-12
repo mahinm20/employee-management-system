@@ -4,6 +4,6 @@ from employeeprofile.models import *
 
 admin.site.register(Department)
 admin.site.register(Employee)
-
+admin.site.register(Tasks)
 admin.site.register(Role)
 admin.site.register(Salary)

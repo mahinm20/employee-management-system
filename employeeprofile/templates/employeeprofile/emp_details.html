@@ -32,8 +32,13 @@
         <td>{{details.manager}}</td>
         <td>{{details.department}}</td>
         <td>{{details.roles}}</td>
+
         <td>{{details.salary}}</td>
+        {% if details.documents %}
         <td><button type="button" class="btn btn-success" onclick="location.href='{{ details.documents.url}}'" >View</button></td>
+        {% else %}
+        <td> No File Found</td>
+        {% endif %}
       </tr>
       
       
@@ -41,7 +46,17 @@
     
   </table>
 
-  
+  {% if tasks %}
+  <h2> {{ details.first_name}}'s Tasks </h2>
+  <hr>
+  {% for task in tasks %}
+  <h4>{{task.task_name}}</h4>
+  <h3>{{task.task_desp}}</h3>
+  <hr>
+  {% endfor %}
+  {% else %}
+  <h2>No Task!! Enjoy!!!</h2>
+  {% endif %}
   
   
   

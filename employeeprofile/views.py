@@ -1,14 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import EmployeeForm
-from .models import Employee
+from .models import Employee, Tasks
 from django.shortcuts import HttpResponse, HttpResponseRedirect
 from django.db import connection
 
 from django.urls import reverse
 
 def index(request):
-    Hello = "sui"
-    return render(request,'employeeprofile/index.html',{'hello':Hello})
+    return render(request,'employeeprofile/index.html')
 
 
 # Create your views here.
@@ -24,9 +23,9 @@ def details(request,employee_id):
     #details =  Employee.objects.raw('SELECT * FROM employeeprofile_employee where id = %s',[employee_id])
     #details =  Employee.objects.filter(id=employee_id)
     details = get_object_or_404(Employee,pk=employee_id)
+    tasks = Tasks.objects.filter(task_assigned=details)
     
-   
-    return render(request,'employeeprofile/emp_details.html',{'details':details})
+    return render(request,'employeeprofile/emp_details.html',{'details':details,'tasks':tasks})
     
 
     
